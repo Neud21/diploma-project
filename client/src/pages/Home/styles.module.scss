@@ -1,0 +1,51 @@
+@import "@/styles/main";
+
+.container {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+
+  //   overflow-y: auto;
+  .cartWrapper {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    z-index: 1000;
+
+    cursor: pointer;
+    transition: all 200ms ease;
+    &:hover{
+      transform: scale(1.03);
+    }
+    .cart {
+      position: relative;
+      width: 80px;
+      height: 80px;
+
+      border-radius: 50%;
+
+      background-color: $accent-color;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .cartIcon {
+        width: 40px;
+      }
+      .cartItems {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: $secondary-color;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+    }
+  }
+}

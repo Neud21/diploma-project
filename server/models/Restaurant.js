@@ -1,0 +1,88 @@
+const { DataTypes } = require('sequelize')
+const sequelize = require('../database')
+
+const RESTAURANT_CATEGORY = [
+    'ASIAN',
+    'ITALIAN',
+    'RUSSIAN',
+    'GREEK',
+    'BELARUSIAN',
+    'HUNGERIAN',
+    'AMERICAN',
+    'ANGOLAN',
+    'ARAB',
+    'ARGENTINE',
+    'AUSTRALIAN',
+    'GERMAN',
+    'AUSTRIAN',
+    'BELGIAN',
+    'BOSNIAN',
+    'BRAZILIAN',
+    'CAMBODIAN',
+    'CANADIAN',
+    'CHILEAN',
+    'CHINESE',
+    'JAPANESE',
+    'COLOMBIAN',
+    'CONGOLESE',
+    'CROATIAN',
+    'CZECH',
+    'DUTCH',
+    'EGYPTIAN',
+    'ETHIOPIAN',
+    'FILIPINO',
+    'FINNISH',
+    'FRENCH',
+    'INDIAN',
+    'INDONESIAN',
+    'IRISH',
+    'ISRAELI',
+    'JAMAICAN',
+    'KAZAKH',
+    'KENYAN',
+    'KOREAN',
+    'MALAGASY',
+    'MALAYSIAN',
+    'MEXICAN',
+    'MONGOLIAN',
+    'NIGERIAN',
+    'NORWEGIAN',
+    'PACIFIC',
+    'PAKISTANI',
+    'PERUVIAN',
+    'POLISH',
+    'PORTUGUESE',
+    'MISC',
+]
+
+const Restaurant = sequelize.define(
+    'Restaurant',
+    {
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
+        },
+        name: {
+            type: DataTypes.STRING(30),
+            unique: true,
+            allowNull: false,
+        },
+        category: {
+            type: DataTypes.ENUM(...RESTAURANT_CATEGORY),
+            defaultValue: 'MISC',
+            allowNull: false,
+        },
+        delivery: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+    },
+    {
+        tableName: 'Restaurant',
+        freezeTableName: true,
+        paranoid: true,
+    },
+)
+
+module.exports = Restaurant

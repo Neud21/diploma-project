@@ -1,0 +1,56 @@
+services:
+    server:
+        build:
+            context: .
+        env_file: ./.env
+        environment:
+            - PORT=${PORT}
+            - SECRET=${SECRET}
+            - DB_NAME=${POSTGRES_DB}
+            - DB_HOST=db
+            - DB_PORT=${DB_PORT}
+            - DB_USER=${POSTGRES_USER}
+            - DB_PASSWORD=${POSTGRES_PASSWORD}
+            - NATS_URL=${NATS_URL}
+        ports:
+            - '8081:8081'
+        volumes:
+            - ./uploads:/usr/src/app/uploads
+        depends_on:
+            db:
+                condition: service_healthy
+        networks:
+            - food-store-net
+
+    db:
+        image: postgres
+
+        container_name: db
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
+        ports:
+            - '5432:5432'
+        networks:
+            - food-store-net
+        healthcheck:
+            test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER}']
+            interval: 5s
+            timeout: 5s
+            retries: 5
+
+    nats:
+        image: nats:latest
+        container_name: food-store-nats
+        command: '--addr 0.0.0.0 --http_port 8222' # Enable monitoring
+        networks:
+            - food-store-net
+        ports:
+            - '4222:4222' # Client port
+            - '8222:8222' # Monitoring port
+
+networks:
+    food-store-net:
+        driver: bridge
+        name: food-store-network

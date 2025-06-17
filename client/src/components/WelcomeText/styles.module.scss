@@ -1,0 +1,26 @@
+@import "@/styles/main";
+
+.welcome__container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+  .title {
+    font-size: 8rem;
+    color: $accent-color;
+    font-weight: 100;
+
+    border-bottom: 1px solid $text-color;
+  }
+  .description__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    .description {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+}

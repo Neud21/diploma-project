@@ -1,0 +1,101 @@
+@import '@/styles/main';
+
+.container{
+    .title{
+        font-weight: 600;
+        font-size: 2rem;
+
+        padding-bottom: 1rem;
+        border-bottom: 2px solid $grey-color;
+    }
+    .content{
+        margin-top: 2rem;
+        width: 550px;
+        background-color: $bgc-cart;
+        padding: 1rem;
+        border-radius: 20px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+ 
+            .list{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                .item{
+                    width: 100%;
+    
+                    display: flex;
+                    justify-content: space-between;
+    
+                    .image{
+                        border-radius: 20px;
+                        width: 55%;
+                    }
+                    .info{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        justify-content: space-between;
+    
+                        padding: 0.1rem 0;
+    
+                        .name{
+                            font-weight: 500;
+                            font-size: 1.5rem;
+                        }
+                        .price{
+                            font-size: 1rem;
+                            color: $black;
+                        }
+                    }
+                }
+            }
+    
+            .total{
+                padding: 1rem 0;
+                border-top: 2px solid $text-color;
+    
+                .text{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+    
+                    font-size: 1.3rem;
+                    font-weight: 500;
+    
+                    margin-bottom: 1rem;
+                }
+                .button{
+                    width: 100%;
+                    // height: 30px;
+                    border-radius: 20px;
+                    background-color: $accent-color;
+                    color: $white;
+                    font-size: 1.7rem;
+                    font-weight: 400;
+                
+                    padding: 0.5rem;
+                
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                
+                    transition: all 200ms ease;
+                
+                    &:hover {
+                      transform: scale(1.01);
+                    }
+                }
+            }
+            .noItems{
+                text-align: center;
+                color: $accent-color;
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+           
+    }
+   
+}

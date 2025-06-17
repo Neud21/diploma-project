@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "./base/reset";
+@import "./base/colors";
+
+body {
+  font: {
+    weight: 300;
+    style: normal;
+    family: "Roboto", sans-serif;
+    size: 16px;
+  }
+  background-color: $white;
+  color: $text-color;
+}

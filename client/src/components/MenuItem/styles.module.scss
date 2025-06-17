@@ -1,0 +1,111 @@
+@import '@/styles/main';
+
+.container{
+    max-width: 250px;
+    width: 100%;
+    border-radius: 20px;
+
+    .img{
+        width: 100%;
+        margin-bottom: 1rem;
+        border-radius: 20px;
+    }
+    .info{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .info__top{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .name{
+                font-size: 1.5rem;
+            }
+            .price{
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: $black;
+            }
+          
+        }
+        .info__bottom{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .cart{
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                .button{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 10px;
+                    background-color:$bgc-cart;
+                    font-size: 1rem;
+                    color: $black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 200ms ease;
+
+                    &:hover{
+                        background-color: $grey-color;
+                    }
+                }
+                .quantity{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 10px;
+                    background-color:$bgc-cart;
+                    font-size: 1rem;
+                    color: $black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .inf{
+                width: 30px;
+                height: 30px;
+                border-radius: 10px;
+                background-color:$bgc-cart;
+                font-size: 1rem;
+                color: $black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .extra{
+                opacity: 1;
+                border-radius: 20px;
+                background-color: $grey-color;
+                font-size: 1.1rem;
+                color: $black;
+                display: flex;
+                flex-direction: column;
+                gap: 0.7rem;
+                
+                .extra__name{
+                    font-size: 1.5rem;
+                }
+                .extra__desc{
+                    max-width: 200px;
+                    font-style: italic;
+                    color: $black;
+                }
+                .extra__inf{
+                    font-weight: 500;
+                    span{
+                        color: $accent-color;
+                    }
+                }
+            }
+           
+        }
+    }
+    
+}

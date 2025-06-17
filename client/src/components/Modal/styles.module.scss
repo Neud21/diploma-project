@@ -1,0 +1,102 @@
+// Variables
+$modal-z-index: 1000;
+$modal-bg: #fff;
+$modal-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+$modal-border-radius: 8px;
+$overlay-bg: rgba(0, 0, 0, 0.5);
+$header-border: 1px solid #eee;
+$close-btn-color: #666;
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Styles
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $overlay-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: $modal-z-index;
+}
+
+.modal {
+  background: $modal-bg;
+  border-radius: $modal-border-radius;
+  box-shadow: $modal-shadow;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-out;
+
+  &.sm {
+    max-width: 400px;
+  }
+
+  &.md {
+    max-width: 600px;
+  }
+
+  &.lg {
+    max-width: 800px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: $header-border;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: $close-btn-color;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #000;
+  }
+
+  &:focus {
+    outline: 2px solid #4d90fe;
+  }
+}
+
+.content {
+  padding: 1rem;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .modal {
+    width: 95%;
+    
+    &.sm, &.md, &.lg {
+      max-width: 95%;
+    }
+  }
+}
