@@ -3,15 +3,19 @@
 
 
 ### for start server for dev
- - nats server
- - yarn start 
-
+```
+  nats server
+  yarn start 
+```
 
 ### for start client for dev
- - yarn dev
-
+```
+  yarn dev
+```
 
 ### for first start app 
- - docker compose up -d
- - docker compose build
- - yarn migrate
+```
+  docker compose up -d
+  docker compose build
+  yarn migrate
+```
